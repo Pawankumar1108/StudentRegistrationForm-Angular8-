@@ -1,0 +1,87 @@
+<h3 style="color: cornflowerblue;">Add New Student</h3>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+        <!--         <div class="form-group">
+            <label for="name">Student ID</label><br>
+            <input type="text" class="form-control" id="studentid" required [(ngModel)]="student.studentid" name="studentid"><br>
+        </div><br> -->
+
+        <div class="form-group">
+            <label for="name">Student Name</label><br>
+            <input type="text" class="form-control" id="studentName" required [(ngModel)]="student.studentName" name="studentName"><br>
+        </div><br>
+
+        <div class="form-group">
+            <label for="name">Student DOB</label><br>
+            <input type="text" class="form-control" id="studentdob" required [(ngModel)]="student.studentdob" name="studentdob"><br>
+        </div><br>
+
+        <div class="form-group">
+            <label for="name">Student Contact Number</label><br>
+            <input type="text" class="form-control" id="studentContactNumber" required [(ngModel)]="student.studentContactNumber" name="studentContactNumber"><br>
+        </div><br>
+
+        <div class="form-group">
+            <label for="name">Student Address</label><br>
+            <input type="text" class="form-control" id="studentAddress" required [(ngModel)]="student.studentAddress" name="studentAddress"><br>
+        </div><br>
+        <!--         <div class="form-group">
+            <label for="name">Student Relative ID</label><br>
+            <input type="text" class="form-control" id="relativeId" required [(ngModel)]="student.relativeId" name="relativeId"><br>
+        </div><br> -->
+        <div class="form-group">
+            <label for="name">Student Relative name</label><br>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="student.name" name="name"><br>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Student Relation</label><br>
+            <input type="text" class="form-control" id="relation" required [(ngModel)]="student.relation" name="relation"><br>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Student Relative Address</label><br>
+            <input type="text" class="form-control" id="address" required [(ngModel)]="student.address" name="address"><br>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Student Relative Contact Number</label><br>
+            <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="student.contactNumber" name="contactNumber"><br>
+        </div><br>
+        <!--         <div class="form-group">
+            <label for="name">Student Marks ID</label><br>
+            <input type="text" class="form-control" id="markid" required [(ngModel)]="student.markid" name="markid"><br>
+        </div><br> -->
+        <div class="form-group">
+            <label for="name">English</label><br>
+            <input type="text" class="form-control" id="english" required [(ngModel)]="student.english" name="english"><br>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Maths</label><br>
+            <input type="text" class="form-control" id="maths" required [(ngModel)]="student.maths" name="maths"><br>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Science</label><br>
+            <input type="text" class="form-control" id="science" required [(ngModel)]="student.science" name="science"><br>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Hindi</label><br>
+            <input type="text" class="form-control" id="hindi" required [(ngModel)]="student.hindi" name="hindi"><br>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Marathi</label><br>
+            <input type="text" class="form-control" id="marathi" required [(ngModel)]="student.marathi" name="marathi"><br>
+        </div><br>
+        <!--         <div class="form-group">
+            <label for="name">Total Marks</label><br>
+            <input type="text" class="form-control" id="totalmarks" required [(ngModel)]="student.totalmarks" name="totalmarks"><br>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Percentage</label><br>
+            <input type="text" class="form-control" id="studentpercentage" required [(ngModel)]="student.studentpercentage" name="studentpercentage"><br>
+        </div><br> -->
+
+        <button type="submit" class="btn btn-success">Submit</button><br>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+</div>

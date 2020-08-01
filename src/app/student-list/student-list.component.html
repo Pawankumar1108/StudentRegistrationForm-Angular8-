@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="panel-heading">
+        <h2>Student List</h2>
+    </div>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th> Student Id</th>
+                    <th> Student Name</th>
+                    <th>Student DOB</th>
+                    <th>Student Contact Number</th>
+                    <th>Student Address</th>
+                    <th>Student Relative ID</th>
+                    <th>Student Relative name</th>
+                    <th>Student Relation</th>
+                    <th>Student Relative Address</th>
+                    <th>Student Relative Contact Number</th>
+                    <th>Student Marks ID</th>
+                    <th>English</th>
+                    <th>Maths</th>
+                    <th>Science</th>
+                    <th>Hindi</th>
+                    <th>Total Marks</th>
+                    <th>Percentage</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of student |async ">
+
+                    <td>{{student.studentid}}</td>
+                    <td>{{student.studentName}}</td>
+                    <td>{{student.studentdob}}</td>
+                    <td>{{student.studentContactNumber}}</td>
+                    <td>{{student.studentAddress}}</td>
+                    <td>{{student.relativeId}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.relation}}</td>
+                    <td>{{student.address}}</td>
+                    <td>{{student.contactNumber}}</td>
+                    <td>{{student.markid}}</td>
+                    <td>{{student.english}}</td>
+                    <td>{{student.maths}}</td>
+                    <td>{{student.science}}</td>
+                    <td>{{student.hindi}}</td>
+                    <td>{{student.marathi}}</td>
+                    <td>{{student.totalmarks}}</td>
+                    <td>{{student.studentpercentage}}</td>
+                    <td>
+                        <button (click)="studentDetails(student.studentName)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
