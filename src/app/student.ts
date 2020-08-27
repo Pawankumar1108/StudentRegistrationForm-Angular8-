@@ -11,9 +11,7 @@ export class Student {
     studentAddress:string;
     
     //relative Entity
- 
-  
-    relativeId:number;
+      relativeId:number;
     name:string;
     relation:string;
     address:string;
@@ -28,7 +26,7 @@ export class Student {
     hindi:number;
     marathi:number;
     totalmarks:number;
-    studentpercentage:number;
+    studentpercentage:number; 
 
-
+ 
 }

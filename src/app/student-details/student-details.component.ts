@@ -20,7 +20,7 @@ export class StudentDetailsComponent implements OnInit {
     private studentService: StudentService) { }
 
   ngOnInit() {
-    this.student = new Student();
+   /*  this.student = new Student();
 
     this.studentname = this.route.snapshot.params['studentname'];
     
@@ -28,7 +28,7 @@ export class StudentDetailsComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.student = data;
-      }, error => console.log(error));
+      }, error => console.log(error)); */
   }
 
   list(){

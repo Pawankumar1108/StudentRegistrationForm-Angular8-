@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="panel-heading">
+        <h2> Student Relatives List </h2>
+    </div>
+    <div class="container">
+        <table id= "customers" class="table  table-striped">
+            <thead> 
+                <tr>
+                    <th > Student Id</th>
+                    <th style="color: brown;" type="button" value="View Relatives" >Relatives</th> 
+                     
+                    <th >Student Relative name</th>
+                    <th >Student Relation</th>
+                    <th >Student Relative Address</th>
+                    <th >Student Relative Contact Number</th>
+                </tr>
+            </thead>
+            <tbody>
+          <!--       <tr *ngFor="let student of student |async "> -->
+                    
+                  <!--   <td  >{{student.studentid}}</td> -->
+    
+                <tr *ngFor="let relatives of relativelist |async ">
+                    
+                    <td >{{studentId}}</td>
+                    <td  style="color: blue;" style="color: blue;" >R_id {{relatives.relativeId}}</td>
+                    <!--  <td type= "button" value="add Relatives"> -->
+                    <!-- <td> <input  type="button" style="color: blue;"
+                        (click)="goToRelatives(student.studentid)" 
+                    > add relatives</td> -->
+                   
+                    <!-- <td >{{student.relatives[0].relativeId}}</td> -->
+                     
+                    <td >{{relatives.name}}</td>
+                    <td >{{relatives.relation}}</td>
+                    <td >{{relatives.address}}</td>
+                    <td >{{relatives.contactNumber}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <form>
+        <input type="button" style="color: blue;" value="Back To Studentlist"
+        Onclick="window.location.href='http://localhost:4200/studentlist'"><br><br>
+        <input  type="button"  style="color: blue;" value="add Relative"
+        (click)="goNewRelative(studentId)"><br><br>
+     </form> 
+    
+   <!--  <div>
+        <a class="btn btn-primary" roterlink="['/studentlist']">Back To Studentlist</a>
+        <button class="btn btn-primary pull right"(click)="goToRelatives()">Add Relatives</button> 
+    </div> -->
+    <div>
+        <!-- <a [routerlink]="['/newrelative',this.studentId]">XYZ</a> -->
+
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,39 @@
+
+<header class="header">
+  <style>
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+  </style>
+    <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
+        
+      <ul class="navbar-nav">
+      
+      <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="studentlist" class="nav-link">View Student</a></li> -->
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="newstudent" class="nav-link">Add New Student</a></li>
+    <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="login" class="nav-link">Login</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="logout" class="nav-link">LogOut</a></li>
+  
+  </ul>
+      </nav>
+    </header>

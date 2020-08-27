@@ -1,0 +1,22 @@
+<!-- <div class="container">
+    <div>
+      User Name : <input type="text" name="username" [(ngModel)]="username">
+      Password : <input type="password" name="password" [(ngModel)]="password">
+    </div>
+    <button (click)=checkLogin() class="btn btn-success">Login
+    
+    </button>
+  </div> -->
+  <div class="container">
+    <h2 style="color: rgb(42, 165, 79); text-align:left;">Admin Login(Teacher Login) </h2><br>
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required [(ngModel)]="username"><br>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required [(ngModel)]="password"><br>
+      
+    <button type="submit" (click)=checkLogin() routerLink="studentlist" class="nav-link" >Admin Login</button><br>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>

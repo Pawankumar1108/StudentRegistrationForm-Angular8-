@@ -1,0 +1,60 @@
+<h3 style="color: cornflowerblue;">Add Relatives</h3>
+<div>
+<div [hidden] ="submitted" style="width: 400px;">
+    <form  (ngSubmit)="onSubmit()">
+
+            <div class="form-group" >
+            <label for="name">Student ID</label><br>
+            <input type="text" class="form-control" id="relativeId" required [(ngModel)]="studentId" readonly name="relativeId"><br>
+        </div><br>
+       <div class="form-group" [class.has-error]="name.invalid && name.touched" [class.has-success]="name.valid">
+            <label for="name">Student Relative name</label><br>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="addRelatives.name"  #name="ngModel" name="name"><br>
+            <span class="help-block" *ngIf="name.errors?.required && name.touched" style="color:cadetblue;">
+               Relative Name is required
+              </span>
+        </div><br>
+        <div class="form-group" [class.has-error]="relation.invalid && relation.touched" [class.has-success]="relation.valid">
+            <label for="name">Student Relation</label><br>
+          <input type="select" class="form-control" id="relation" required [(ngModel)]="addRelatives.relation"  #relation="ngModel" name="relation"><br>
+            <select class="form-control" name="relation" id="relation" [(ngModel)]="addRelatives.relation">
+                <option value=" "><br>
+                <option value="Mother">Mother</option>
+                <option value="Father">Father</option>
+                <option value="Brother">Brother</option>
+                <option value="Sister">Sister</option>   
+              </select>
+              <span class="help-block" *ngIf="relation.errors?.required && relation.touched" style="color:cadetblue;">
+                Select The Relative Relation is required
+              </span>
+        </div><br>  
+        <div class="form-group" [class.has-error]="address.invalid && address.touched" [class.has-success]="address.valid">
+            <label for="name">Student Relative Address</label><br>
+            <input type="text" class="form-control" id="address" required [(ngModel)]="addRelatives.address"  #address="ngModel" name="address"><br>
+            <span class="help-block" *ngIf="address.errors?.required && address.touched" style="color:cadetblue;">
+                Relative Address  is required
+              </span>
+        </div><br>
+        <div class="form-group" [class.has-error]="contactNumber.invalid && contactNumber.touched" [class.has-success]="contactNumber.valid" >
+            <label for="name">Student Relative Contact Number</label><br>
+            <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="addRelatives.contactNumber" #contactNumber="ngModel" name="contactNumber"><br>
+            <span class="help-block" *ngIf="contactNumber.errors?.required && contactNumber.touched" style="color:cadetblue;">
+                Relative Contact Number is required
+              </span>
+        </div><br> 
+ 
+        
+        <button type="submit" class="btn btn-success"   >Submit</button><br>
+    </form>
+
+</div>
+<div [hidden] ="!submitted">
+    <h4>New Relative submitted successfully!</h4>
+    <form>
+        <input type="button" style="color: blue; size: 0ch;" value="To-Studentlist"
+        Onclick="window.location.href='http://localhost:4200/studentlist'"><br>
+    </form>
+  
+</div>
+
+

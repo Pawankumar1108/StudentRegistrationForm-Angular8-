@@ -1,0 +1,32 @@
+/* Bordered form */
+form {
+    border: 3px solid #f1f1f1;
+  }
+  
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 25%;
+    padding: 3px 5px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 3px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #534caf;
+    color: white;
+    padding: 8px 20px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+
+

@@ -1,3 +1,7 @@
+import { RelativesService } from './relatives/relatives.service';
+import { MarksService } from './marks/marks.service';
+import { AuthenticationService } from './authentication.service';
+
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { StudentService } from './student.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,6 +13,15 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import{HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { HeaderComponent } from './header/header.component';
+import { RelativesComponent } from './relatives/relatives.component';
+import { MarksComponent } from './marks/marks.component';
+import { AddRelativesComponent } from './add-relatives/add-relatives.component';
+import { AddMarksComponent } from './add-marks/add-marks.component';
+
+
 
 
  
@@ -19,6 +32,15 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     StudentListComponent,
     AddStudentComponent,
     StudentDetailsComponent,
+    LoginComponent,
+    LogoutComponent,
+    HeaderComponent,
+    RelativesComponent,
+    MarksComponent,
+    AddRelativesComponent,
+    AddMarksComponent,
+  
+    
     
   ],
   imports: [
@@ -29,7 +51,10 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     ReactiveFormsModule
   ],
   providers: [
-    StudentService
+    StudentService,
+    AuthenticationService,
+    MarksService,
+    RelativesService
   ],
   bootstrap: [AppComponent]
 })

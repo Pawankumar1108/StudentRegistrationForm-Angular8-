@@ -3,55 +3,95 @@
         <h2>Student List</h2>
     </div>
     <div class="container">
-        <table class="table table-striped">
-            <thead>
+        <table id= "customers" class="table  table-striped">
+            <thead> 
                 <tr>
-                    <th> Student Id</th>
-                    <th> Student Name</th>
-                    <th>Student DOB</th>
-                    <th>Student Contact Number</th>
-                    <th>Student Address</th>
-                    <th>Student Relative ID</th>
-                    <th>Student Relative name</th>
-                    <th>Student Relation</th>
-                    <th>Student Relative Address</th>
-                    <th>Student Relative Contact Number</th>
-                    <th>Student Marks ID</th>
-                    <th>English</th>
-                    <th>Maths</th>
-                    <th>Science</th>
-                    <th>Hindi</th>
-                    <th>Total Marks</th>
-                    <th>Percentage</th>
-                    <th>Actions</th>
+                    <th > Student Id</th>
+                    <th *ngIf="studentFlag || marksFlag" > Student Name</th>
+                    <th *ngIf="studentFlag">Student DOB</th>
+                    <th *ngIf="studentFlag" >Student Contact Number</th>
+                    <th *ngIf="studentFlag" >Student Address</th>
+                    
+                   <th  *ngIf="!marksFlag" style="color: brown;">Relatives</th>
+                    <th *ngIf="relativeFlag">Student Relative name</th>
+                    <th *ngIf="relativeFlag">Student Relation</th>
+                    <th *ngIf="relativeFlag" >Student Relative Address</th>
+                    <th *ngIf="relativeFlag">Student Relative Contact Number</th>
+
+                    <th *ngIf="marksFlag || studentFlag" style="color: blue;"> Marks</th>
+                  <!--   <th *ngIf="marksFlag">English</th>
+                    <th *ngIf="marksFlag" >Maths</th>
+                    <th *ngIf="marksFlag">Science</th>
+                    <th *ngIf="marksFlag">Hindi</th>
+                    <th *ngIf="marksFlag">Marathi</th>
+                    <th *ngIf="marksFlag">Total Marks</th>
+                    <th *ngIf="marksFlag">Percentage</th>  -->
+
+                   <!--  <th>Actions</th> -->
                 </tr>
             </thead>
             <tbody>
+                
                 <tr *ngFor="let student of student |async ">
-
-                    <td>{{student.studentid}}</td>
-                    <td>{{student.studentName}}</td>
-                    <td>{{student.studentdob}}</td>
-                    <td>{{student.studentContactNumber}}</td>
-                    <td>{{student.studentAddress}}</td>
-                    <td>{{student.relativeId}}</td>
-                    <td>{{student.name}}</td>
-                    <td>{{student.relation}}</td>
-                    <td>{{student.address}}</td>
-                    <td>{{student.contactNumber}}</td>
-                    <td>{{student.markid}}</td>
-                    <td>{{student.english}}</td>
-                    <td>{{student.maths}}</td>
-                    <td>{{student.science}}</td>
-                    <td>{{student.hindi}}</td>
-                    <td>{{student.marathi}}</td>
-                    <td>{{student.totalmarks}}</td>
-                    <td>{{student.studentpercentage}}</td>
-                    <td>
-                        <button (click)="studentDetails(student.studentName)" class="btn btn-info" style="margin-left: 10px">Details</button>
-                    </td>
+                    
+                    <td  >{{student.studentid}}</td>
+                    <td *ngIf="studentFlag || marksFlag">{{student.studentName}}</td>
+                    <td *ngIf="studentFlag" >{{student.studentdob}}</td>
+                    <td *ngIf="studentFlag" >{{student.studentContactNumber}}</td>
+                    <td *ngIf="studentFlag" >{{student.studentAddress}}</td>
+                
+                   <!--  <td type= "button" value="View Relatives"> --><!-- {{student.relatives[0].relativeId}} -->
+                     <td *ngIf="!marksFlag" style="color: blue;" style="color: blue;" 
+                     (click)="goToRelativeList(student.studentid)" > View Relatives</td>
+                     <!-- (click)= "goToRelatives()" -->
+                     <!-- (click)="relativeHideShow()" -->
+                    
+                       
+                   <!--  <td > --><!-- {{student.marks[0].markid}} --> 
+                    <td *ngIf="marksFlag  || studentFlag"  style="color: blue;" 
+                   (click)= "goToMarksList(student.studentid)">view marks</td>
+                   <!-- <td button (click)="marksHideShow(student.studentid)" style="color: blue; "value="Add Marks"
+                   (click)= goToAddMarks() >view marks</td> -->
+                   
+ <!--                   <tr *ngFor="let marks of markslist |async ">
+                    <td *ngIf="marksFlag">{{marks.english}}</td>
+                    <td *ngIf="marksFlag">{{marks.maths}}</td>
+                    <td *ngIf="marksFlag">{{marks.science}}</td>
+                    <td *ngIf="marksFlag">{{marks.hindi}}</td>
+                    <td *ngIf="marksFlag">{{marks.marathi}}</td>
+                    <td *ngIf="marksFlag">{{marks.totalmarks}}</td>  
+                    <td *ngIf="marksFlag">{{marks.studentpercentage}}</td> 
+               
+                  
                 </tr>
+                <tr *ngFor="let relatives of relativelist |async ">
+                    <td *ngIf="relativeFlag">{{relatives.name}}</td>
+                    <td *ngIf="relativeFlag">{{relatives.relation}}</td>
+                    <td *ngIf="relativeFlag">{{relatives.address}}</td>
+                    <td *ngIf="relativeFlag">{{relatives.contactNumber}}</td>
+                   </tr>
+
+                   <tr *ngFor="let marks of markslist |async ">
+                    <td *ngIf="marksFlag">{{marks.english}}</td>
+                    <td *ngIf="marksFlag">{{marks.maths}}</td>
+                    <td *ngIf="marksFlag">{{marks.science}}</td>
+                    <td *ngIf="marksFlag">{{marks.hindi}}</td>
+                    <td *ngIf="marksFlag">{{marks.marathi}}</td>
+                    <td *ngIf="marksFlag">{{marks.totalmarks}}</td>  
+                    <td *ngIf="marksFlag">{{marks.studentpercentage}}</td> 
+                    </tr>
+         -->
+
             </tbody>
         </table>
     </div>
+    <br>
+    <form>
+        <input type="button" style="color: blue;" value="Back To Studentlist"
+        Onclick="window.location.href='http://localhost:4200/studentlist'"><br><br>
+      <!--   <input type="button" style="color: blue;" value="add Relative"
+        Onclick=" goToRelatives(student.studentid)"><br><br>  -->
+       <!--<input *ngIf="marksFlag" type="button" style="color: blue;" value="add marks"
+        Onclick="window.location.href='http://localhost:4200/newmarks'"><br> -->
+    </form>
 </div>

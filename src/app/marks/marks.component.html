@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="panel-heading">
+        <h2> Student Marks</h2>
+    </div>
+    <div class="container">
+        <table id= "customers" class="table  table-striped">
+            <thead> 
+                <tr>
+                    <th > Student Id</th>
+                    <!-- <th > Student Name</th> -->
+
+                    <th style="color: blue;" > Marks</th>
+                    <th >English</th>
+                    <th >Maths</th>
+                    <th >Science</th>
+                    <th >Hindi</th>
+                    <th >Marathi</th>
+                    <th >Total Marks</th>
+                    <th >Percentage</th>
+                   <!--  <th>Actions</th> -->
+                </tr>
+            </thead>
+            <tbody>
+
+             <tr *ngFor="let marks of markslist |async;let student of student|async">
+              <!--  <td >{{student.studentid}}</td> 
+                <td >{{student.studentName}}</td> -->
+                
+                <td >{{studentId}}</td>
+                <!-- <td >{{student.studentName}}</td> -->
+                    <!-- <td >{{studentName}}</td> -->
+                <!-- {{student.marks[0].markid}} -->
+                   <!--  <input  type="button" style="color: blue;" value="Add Marks"
+                    Onclick="window.location.href='http://localhost:4200/newmarks'"></td> -->
+                    <td  style="color: blue;" style="color: blue;" >M_id {{marks.markid}}</td>
+                    <td >{{marks.english}}</td>
+                    <td >{{marks.maths}}</td>
+                    <td >{{marks.science}}</td>
+                    <td >{{marks.hindi}}</td>
+                    <td >{{marks.marathi}}</td>
+                    <td >{{marks.totalmarks}}</td>  
+                    <td >{{marks.studentpercentage}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <form>
+        <input type="button" style="color: blue;" value="Back To Studentlist"
+        Onclick="window.location.href='http://localhost:4200/studentlist'"><br><br>
+        <input  type="button" style="color: blue;" value="add Marks"
+        (click)="goToMarks(studentId)"><br>
+    </form>  
+</div>
+
+
+

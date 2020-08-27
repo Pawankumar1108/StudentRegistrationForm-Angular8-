@@ -1,0 +1,65 @@
+<h3 style="color: cornflowerblue;">Add Student Marks</h3>
+<div [hidden] ="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()"> <!-- #addMa rks="ngForm" -->
+          <div class="form-group">
+            <label for="name">Student ID</label><br>
+            <input type="text" class="form-control" id="markId" required [(ngModel)]="studentId" readonly name="markId"><br>
+        </div><br> 
+        <div class="form-group" [class.has-error]="english.invalid && english.touched" [class.has-success]="english.valid">
+            <label for="name">English</label><br>
+            <input type="text" class="form-control" id="english" required [(ngModel)]="addMarks.english" #english="ngModel" name="english"><br>
+            <span class="help-block" *ngIf="(english.touched||submitted) && english.errors?.english" style="color:cadetblue;">
+                English Marks is required
+               </span>
+        </div><br>
+        <div class="form-group" [class.has-error]="maths.invalid && maths.touched" [class.has-success]="maths.valid">
+            <label for="name">Maths</label><br>
+            <input type="text" class="form-control" id="maths" required [(ngModel)]="addMarks.maths" #maths="ngModel" name="maths"><br>
+            <span class="help-block" *ngIf="(maths.touched||submitted) && maths.errors?.required " style="color:cadetblue;">
+                Maths Marks is required
+               </span>
+        </div><br>
+        <div class="form-group" [class.has-error]="science.invalid && science.touched" [class.has-success]="science.valid">
+            <label for="name">Science</label><br>
+            <input type="text" class="form-control" id="science" required [(ngModel)]="addMarks.science" #science="ngModel" name="science"><br>
+            <span class="help-block" *ngIf="(science.touched||submitted) && science.errors?.required  " style="color:cadetblue;">
+                Science Marks is required
+               </span>
+        </div><br>
+        <div class="form-group" [class.has-error]="hindi.invalid && hindi.touched" [class.has-success]="hindi.valid">
+            <label for="name">Hindi</label><br>
+            <input type="text" class="form-control" id="hindi" required [(ngModel)]="addMarks.hindi" #hindi="ngModel" name="hindi"><br>
+            <span class="help-block" *ngIf="(hindi.touched||submitted)&& hindi.errors?.required" style="color:cadetblue;">
+                Hindi Marks is required
+               </span>
+        </div><br>
+        <div class="form-group" [class.has-error]="marathi.invalid && marathi.touched" [class.has-success]="marathi.valid">
+            <label for="name">Marathi</label><br>
+            <input type="text" class="form-control" id="marathi" required [(ngModel)]="addMarks.marathi" #marathi="ngModel" name="marathi"><br>
+            <span class="help-block" *ngIf="(marathi.touched||submitted)&& marathi.errors?.required " style="color:cadetblue;">
+                Marathi Marks is required
+               </span>
+        </div><br>
+          <!--       <div class="form-group">
+            <label for="name">Total Marks</label><br>
+            <input type="text" class="form-control" id="totalmarks" required [(ngModel)]="addMarks.totalmarks" name="totalmarks"><br>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Percentage</label><br>
+            <input type="text" class="form-control" id="studentpercentage" required [(ngModel)]="addMarks.studentpercentage" name="studentpercentage"><br>
+        </div><br> -->
+
+        <button type="submit" class="btn btn-success" >Submit</button><br><BR><BR> <!-- [disabled] ="addMarks.invalid" -->
+        
+            <input type="button" style="color: blue; size: 0ch;" value="To-Studentlist"
+        Onclick="window.location.href='http://localhost:4200/studentlist'"><br>
+    </form>
+</div>
+<div [hidden] ="!submitted">
+    <h4>Marks submitted successfully!</h4>
+    <form>
+        <input type="button" style="color: blue; size: 0ch;" value="To-Studentlist"
+        Onclick="window.location.href='http://localhost:4200/studentlist'"><br>
+    </form>
+  
+</div>        

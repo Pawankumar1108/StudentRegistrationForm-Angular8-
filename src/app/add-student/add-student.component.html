@@ -1,42 +1,94 @@
+<script type="text/javascript">
+function whitespacevalidation(){
+    var stdName=document.getElementById('studentName').value;
+    var stdDob=document.getElementById('studentdob').value;
+    var stdcontactNumber=document.getElementById('studentContactNumber').value;
+    var stdAddr=document.getElementById('studentAddress').value;
+
+    if(stdName.replace(/\s/g,"").length>=2){
+        alert("Empty Filed and  more than 2 WhiteSpace Are Not allowed 'StudentName'");
+        return false;
+    }
+    if(stdDob.replace(/\s/g,"").length>=2){
+        alert("Empty Filed and  more than 2 WhiteSpace Are Not allowed 'studentdob'");
+        return false;
+    }
+    if(stdcontactNumber.replace(/\s/g,"").length>=2){
+        alert("Empty Filed and  more than 2 WhiteSpace Are Not allowed 'studentContactNumber'");
+        return false;
+    }
+    if(stdAddr.replace(/\s/g,"").length>=2){
+        alert("Empty Filed and  more than 2 WhiteSpace Are Not allowed 'studentAddress'");
+        return false;
+    }
+  /*   onsubmit="return whitespacevalidation()" */
+}
+</script>
 <h3 style="color: cornflowerblue;">Add New Student</h3>
-<div [hidden]="submitted" style="width: 400px;">
-    <form (ngSubmit)="onSubmit()">
-        <!--         <div class="form-group">
+<div [hidden] ="submitted" style="width: 400px;">
+    <form  (ngSubmit)="onSubmit()" >  <!-- #student="ngForm" -->
+    <!--             <div class="form-group">
             <label for="name">Student ID</label><br>
             <input type="text" class="form-control" id="studentid" required [(ngModel)]="student.studentid" name="studentid"><br>
-        </div><br> -->
+        </div><br>
+ -->
+        <div class="form-group" onsubmit="return whitespacevalidation()" [class.has-error]="studentName.invalid && studentName.touched" [class.has-success]="studentName.valid">
+            
+            <label for="name">Student Name</label><br> 
+            <input type="text"  class="form-control" id="studentName" required  [(ngModel)]="student.studentName" 
+            name="studentName" #studentName="ngModel"><br>
+            <span class="help-block" *ngIf="studentName.errors?.required && studentName.touched" style="color: brown;">
+                Student Name is required
+              </span>
+        <!-- <div *ngIf="student.invalid &&(student.dirty||student.touched" class="alert alert-danger">
+            Student Name Should Not Be Empty
 
-        <div class="form-group">
-            <label for="name">Student Name</label><br>
-            <input type="text" class="form-control" id="studentName" required [(ngModel)]="student.studentName" name="studentName"><br>
+        </div> -->
         </div><br>
 
-        <div class="form-group">
+        <div class="form-group" onsubmit="return whitespacevalidation()" [class.has-error]="studentdob.invalid && studentdob.touched" [class.has-success]="studentdob.valid">
             <label for="name">Student DOB</label><br>
-            <input type="text" class="form-control" id="studentdob" required [(ngModel)]="student.studentdob" name="studentdob"><br>
+            <input type="text" class="form-control" id="studentdob" required [(ngModel)]="student.studentdob" #studentdob="ngModel" name="studentdob"><br>
+            <span class="help-block" *ngIf="studentName.errors?.required && studentName.touched" style="color:cadetblue;">
+                Student DOB is required
+              </span>
         </div><br>
 
-        <div class="form-group">
+        <div class="form-group" onsubmit="return whitespacevalidation()" [class.has-error]="studentContactNumber.invalid && studentContactNumber.touched" [class.has-success]="studentContactNumber.valid">
             <label for="name">Student Contact Number</label><br>
-            <input type="text" class="form-control" id="studentContactNumber" required [(ngModel)]="student.studentContactNumber" name="studentContactNumber"><br>
+            <input type="text" class="form-control" id="studentContactNumber" required [(ngModel)]="student.studentContactNumber" 
+            min="1" max="10" name="studentContactNumber" #studentContactNumber="ngModel"><br>
+            <span class="help-block" *ngIf="studentContactNumber.errors?.required && studentContactNumber.touched" style="color:crimson;">
+                Contact Number is required
+              </span>
         </div><br>
 
-        <div class="form-group">
+        <div class="form-group" onsubmit="return whitespacevalidation()" [class.has-error]="studentAddress.invalid && studentAddress.touched" [class.has-success]="studentAddress.valid">
             <label for="name">Student Address</label><br>
-            <input type="text" class="form-control" id="studentAddress" required [(ngModel)]="student.studentAddress" name="studentAddress"><br>
+            <input type="text" class="form-control" id="studentAddress" required [(ngModel)]="student.studentAddress" #studentAddress="ngModel"name="studentAddress"><br>
+            <span class="help-block" *ngIf="studentAddress.errors?.required && studentAddress.touched" style="color: crimson;">
+                Student Address is required
+              </span>
         </div><br>
-        <!--         <div class="form-group">
+             <!--    <div class="form-group">
             <label for="name">Student Relative ID</label><br>
             <input type="text" class="form-control" id="relativeId" required [(ngModel)]="student.relativeId" name="relativeId"><br>
         </div><br> -->
-        <div class="form-group">
+      <!--   <div class="form-group">
             <label for="name">Student Relative name</label><br>
             <input type="text" class="form-control" id="name" required [(ngModel)]="student.name" name="name"><br>
         </div><br>
         <div class="form-group">
-            <label for="name">Student Relation</label><br>
-            <input type="text" class="form-control" id="relation" required [(ngModel)]="student.relation" name="relation"><br>
-        </div><br>
+            <label for="name">Student Relation</label><br> -->
+            <!-- <input type="select" class="form-control" id="relation" required [(ngModel)]="student.relation" name="relation"><br> -->
+        <!--     <select class="form-control" name="relation" id="relation" [(ngModel)]="student.relation">
+                <option value="">
+                <option value="Mother">Mother</option>
+                <option value="Father">Father</option>
+                <option value="Brother">Brother</option>
+                <option value="Sister">Sister</option>   
+              </select>
+        </div><br>  
         <div class="form-group">
             <label for="name">Student Relative Address</label><br>
             <input type="text" class="form-control" id="address" required [(ngModel)]="student.address" name="address"><br>
@@ -44,12 +96,12 @@
         <div class="form-group">
             <label for="name">Student Relative Contact Number</label><br>
             <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="student.contactNumber" name="contactNumber"><br>
-        </div><br>
-        <!--         <div class="form-group">
+        </div><br> -->
+          <!--       <div class="form-group">
             <label for="name">Student Marks ID</label><br>
             <input type="text" class="form-control" id="markid" required [(ngModel)]="student.markid" name="markid"><br>
         </div><br> -->
-        <div class="form-group">
+       <!--  <div class="form-group">
             <label for="name">English</label><br>
             <input type="text" class="form-control" id="english" required [(ngModel)]="student.english" name="english"><br>
         </div><br>
@@ -68,8 +120,8 @@
         <div class="form-group">
             <label for="name">Marathi</label><br>
             <input type="text" class="form-control" id="marathi" required [(ngModel)]="student.marathi" name="marathi"><br>
-        </div><br>
-        <!--         <div class="form-group">
+        </div><br> -->
+          <!--       <div class="form-group">
             <label for="name">Total Marks</label><br>
             <input type="text" class="form-control" id="totalmarks" required [(ngModel)]="student.totalmarks" name="totalmarks"><br>
         </div><br>
@@ -78,10 +130,22 @@
             <input type="text" class="form-control" id="studentpercentage" required [(ngModel)]="student.studentpercentage" name="studentpercentage"><br>
         </div><br> -->
 
-        <button type="submit" class="btn btn-success">Submit</button><br>
+    <button type="submit" class="btn btn-success"  >Submit</button><br><br> <!-- [disabled] ="student.invalid" -->
+      <!-- alert("Pls Fill all the Fields"); -->
     </form>
+    
+    <form>
+        <input type="button" style="color: blue; size: 0ch;" value="To-Studentlist"
+        Onclick="window.location.href='http://localhost:4200/studentlist'"><br>
+    </form>
+  
 </div>
 
-<div [hidden]="!submitted">
-    <h4>You submitted successfully!</h4>
+<div [hidden] ="!submitted">
+    <h4>New Student submitted successfully!</h4>
+    <!-- <form>
+        <input type="button" style="color: blue; size: 0ch;" value="To-Studentlist"
+        Onclick="window.location.href='http://localhost:4200/studentlist'"><br>
+    </form> -->
+  
 </div>
